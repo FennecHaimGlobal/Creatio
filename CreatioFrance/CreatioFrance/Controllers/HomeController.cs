@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace CreatioFrance.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
@@ -27,4 +27,15 @@ namespace CreatioFrance.Controllers
             return View();
         }
     }
+    //[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
+    //public class MyClassAuthorizationAttribute : Attribute, IAuthorizationFilter
+    //{
+    //    public void OnAuthorization(AuthorizationContext filterContext)
+    //    {
+    //        if (filterContext.HttpContext.User.Identity.IsAuthenticated)
+    //        {
+    //            filterContext.Controller.ViewData["MyClassInstance"] = new MyClass();
+    //        }
+    //    }
+    //}
 }

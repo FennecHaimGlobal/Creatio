@@ -211,7 +211,14 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Administrateur\AdministrateurAreaRegistration.cs" />
+    <Compile Include="Areas\Administrateur\Controllers\AdministrateurBaseController.cs" />
+    <Compile Include="Areas\Avocats\AvocatsAreaRegistration.cs" />
+    <Compile Include="Areas\Commerciaux\CommerciauxAreaRegistration.cs" />
+    <Compile Include="Areas\Membres\Controllers\MembersBaseController.cs" />
+    <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -249,6 +256,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Areas\Administrateur\Views\web.config" />
+    <Content Include="Areas\Avocats\Views\web.config" />
+    <Content Include="Areas\Commerciaux\Views\web.config" />
+    <Content Include="Areas\Membres\Views\web.config" />
     <None Include="Properties\PublishProfiles\creatio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\creatio - Web Deploy.pubxml" />
     <None Include="Resources\EmailConfirmation.html" />
@@ -314,6 +325,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Administrateur\Models\" />
+    <Folder Include="Areas\Administrateur\Views\Shared\" />
+    <Folder Include="Areas\Avocats\Controllers\" />
+    <Folder Include="Areas\Avocats\Models\" />
+    <Folder Include="Areas\Avocats\Views\Shared\" />
+    <Folder Include="Areas\Commerciaux\Controllers\" />
+    <Folder Include="Areas\Commerciaux\Models\" />
+    <Folder Include="Areas\Commerciaux\Views\Shared\" />
+    <Folder Include="Areas\Membres\Models\" />
+    <Folder Include="Areas\Membres\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -323,9 +344,25 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Creatio.Auth.Business\Creatio.Auth.Business.csproj">
+      <Project>{a46ee110-1742-412e-a443-8cd65de81060}</Project>
+      <Name>Creatio.Auth.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Creatio.Auth.Data\Creatio.Auth.Data.csproj">
+      <Project>{02b55c20-59ed-41b7-83e1-b8182885b0e5}</Project>
+      <Name>Creatio.Auth.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CreatioEmailProvider\CreatioEmailProvider.csproj">
       <Project>{61638897-6570-4d93-a3a5-7832a0c1ade7}</Project>
       <Name>CreatioEmailProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreatioFranceBusiness\CreatioFranceBusiness.csproj">
+      <Project>{7fab1ffe-9bc9-4303-a04c-7d2ced27517c}</Project>
+      <Name>CreatioFranceBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreatioFranceEntities\CreatioFranceEntities.csproj">
+      <Project>{0a173913-9917-4b55-84fb-ad16e25efa55}</Project>
+      <Name>CreatioFranceEntities</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

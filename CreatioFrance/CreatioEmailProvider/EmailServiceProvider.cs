@@ -131,7 +131,7 @@ namespace CreatioEmailProvider
             {
                 var smtp = new SmtpClient
                 {
-                    Host = "in.mailjet.com",
+                    Host = "in-v3.mailjet.com",
                     Port = 465,
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
@@ -145,8 +145,8 @@ namespace CreatioEmailProvider
                     Subject = subject,
                     Body = body
                 })
-
-                    await Task.Run(() => smtp.SendMailAsync(message));
+                    smtp.Send(message);
+                    //await Task.Run(() => smtp.SendMailAsync(message));
 
             }
             catch (Exception ex)

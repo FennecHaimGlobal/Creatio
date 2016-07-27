@@ -37,8 +37,9 @@ namespace CreatioFrance.Controllers
 
                 if (userFromAuthCookie != null && userFromAuthCookie.Identity.IsAuthenticated)
                 {
-
+                    ViewBag.UserName = userFromAuthCookie.Identity.Name;
                 }
+               
 
                 ViewData["metaData"] = MyMetadata;
             }

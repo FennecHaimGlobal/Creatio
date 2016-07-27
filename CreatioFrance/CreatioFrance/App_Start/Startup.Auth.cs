@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using CreatioFrance.Models;
 
+[assembly: OwinStartup(typeof(CreatioFrance.Startup))]
 namespace CreatioFrance
 {
     public partial class Startup
@@ -63,6 +64,9 @@ namespace CreatioFrance
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+
+            // Any connection or hub wire up and configuration should go here
+            app.MapSignalR();
         }
     }
 }

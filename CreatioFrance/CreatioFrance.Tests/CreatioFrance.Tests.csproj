@@ -101,7 +101,7 @@
       <Name>CreatioEmailProvider</Name>
     </ProjectReference>
     <ProjectReference Include="..\CreatioFrance\CreatioFrance.csproj">
-      <Project>{33222430-821D-446F-8EE0-13FD09AAC9B7}</Project>
+      <Project>{33222430-821d-446f-8ee0-13fd09aac9b7}</Project>
       <Name>CreatioFrance</Name>
     </ProjectReference>
   </ItemGroup>

@@ -7,8 +7,8 @@ using System.Web.Mvc;
 
 namespace CreatioFrance.Areas.Membres.Controllers
 {
-   
-    [Authorize(Roles = "CreatioMembers")]
+    //[Authorize(Roles = "CreatioAdmin")]
+  //  [Authorize(Roles = "CreatioMembers")]
     public class MembersBaseController : BaseController
     {
       

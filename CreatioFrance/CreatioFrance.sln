@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatioEmailProvider", "Cre
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{14161A31-107A-45C6-AD8B-A8F69DFEBD75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CreatioChatProvider", "CreatioChatProvider\CreatioChatProvider.csproj", "{8B35D858-84B3-4185-B1EC-EC20EDAC39A3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{61638897-6570-4D93-A3A5-7832A0C1ADE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61638897-6570-4D93-A3A5-7832A0C1ADE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61638897-6570-4D93-A3A5-7832A0C1ADE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B35D858-84B3-4185-B1EC-EC20EDAC39A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B35D858-84B3-4185-B1EC-EC20EDAC39A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B35D858-84B3-4185-B1EC-EC20EDAC39A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B35D858-84B3-4185-B1EC-EC20EDAC39A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,5 +94,6 @@ Global
 		{65F4C433-9F29-48BA-AC82-EBB6AC66C9B6} = {4B658D26-E8D1-4F54-8C4E-1C2CB127BF37}
 		{61638897-6570-4D93-A3A5-7832A0C1ADE7} = {14161A31-107A-45C6-AD8B-A8F69DFEBD75}
 		{14161A31-107A-45C6-AD8B-A8F69DFEBD75} = {69BAD206-CC5B-4DB4-8FAE-E409836E5E34}
+		{8B35D858-84B3-4185-B1EC-EC20EDAC39A3} = {14161A31-107A-45C6-AD8B-A8F69DFEBD75}
 	EndGlobalSection
 EndGlobal

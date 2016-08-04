@@ -22,11 +22,11 @@ namespace CreatioFrance
         IEmailServiceProvider _emailServiceProvider = EmailServiceProvider.GetInstance;
 
         #endregion
-        public async Task SendAsync(IdentityMessage message)
+        public Task SendAsync(IdentityMessage message)
         {
-            await _emailServiceProvider.SendSubscriptionConfirmationEmailAsync(message.Subject, message.Body, message.Destination);
+            _emailServiceProvider.SendSubscriptionConfirmationEmailAsync(message.Subject, message.Body, message.Destination).Wait();
 
-            //return Task.FromResult(0);
+            return Task.FromResult(0);
         }
     }
 

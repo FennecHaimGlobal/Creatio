@@ -100,7 +100,17 @@ namespace CreatioEmailProvider
             {
                 string BodyMessage = Properties.Resources.EmailConfirmation;
 
+
+
+                string name = destination;
+
+                int index = name.LastIndexOf("@");
+
+                if (index > 0)
+                    name = name.Remove(index, name.Length - index);
+
                 BodyMessage.Replace("{verify-token-email}", token);
+                BodyMessage.Replace("{name}", name);
 
                 await SendEmailAsync(subject,
                                     BodyMessage,
@@ -131,8 +141,8 @@ namespace CreatioEmailProvider
             {
                 var smtp = new SmtpClient
                 {
-                    Host = "in-v3.mailjet.com",
-                    Port = 465,
+                    Host = "smtp-relay.sendinblue.com",
+                    Port = 587,
                     EnableSsl = true,
                     DeliveryMethod = SmtpDeliveryMethod.Network,
                     UseDefaultCredentials = false,
@@ -145,9 +155,9 @@ namespace CreatioEmailProvider
                     Subject = subject,
                     Body = body
                 })
-                    smtp.Send(message);
-                    //await Task.Run(() => smtp.SendMailAsync(message));
-
+                    //smtp.Send(message);
+                    //Task.Run(() => smtp.SendMailAsync(message));
+                    await smtp.SendMailAsync(message);
             }
             catch (Exception ex)
             {

@@ -218,7 +218,6 @@
     <Compile Include="Areas\Membres\Controllers\ChatHubController.cs" />
     <Compile Include="Areas\Membres\Controllers\MembersBaseController.cs" />
     <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
-    <Compile Include="Areas\Membres\Service\ChatHub.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -358,6 +357,7 @@
     <Folder Include="Areas\Commerciaux\Models\" />
     <Folder Include="Areas\Commerciaux\Views\Shared\" />
     <Folder Include="Areas\Membres\Models\" />
+    <Folder Include="Areas\Membres\Service\" />
     <Folder Include="Content\jquery-ui\images\" />
   </ItemGroup>
   <ItemGroup>

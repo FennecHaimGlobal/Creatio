@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CREATIO_DB_PRODModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Avocat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Specialite" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Presentation" Type="nvarchar" MaxLength="200" />
+          <Property Name="DateCreation" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="HoraireDisponiste" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="NoteAvocat" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commercial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Photo" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Presentation" Type="nvarchar" MaxLength="200" />
+          <Property Name="DateCreation" Type="nvarchar" MaxLength="200" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Informations">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="300" />
+          <Property Name="Ville" Type="nvarchar" MaxLength="200" />
+          <Property Name="CodePostal" Type="nvarchar" MaxLength="5" />
+          <Property Name="TelephoneDomicile" Type="nvarchar" MaxLength="20" />
+          <Property Name="TelephoneBureau" Type="nvarchar" MaxLength="20" />
+          <Property Name="TelephonePortable" Type="nvarchar" MaxLength="20" />
+          <Property Name="DateDeNaissance" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CREATIO_DB_PRODModelStoreContainer">
+          <EntitySet Name="Avocat" EntityType="Self.Avocat" Schema="users" store:Type="Tables" />
+          <EntitySet Name="Commercial" EntityType="Self.Commercial" Schema="users" store:Type="Tables" />
+          <EntitySet Name="Informations" EntityType="Self.Informations" Schema="users" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CREATIO_DB_PRODModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Information">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Ville" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="CodePostal" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneDomicile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TelephoneBureau" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TelephonePortable" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DateDeNaissance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CREATIO_DB_PRODEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Informations" EntityType="Self.Information" />
+          <EntitySet Name="Avocats" EntityType="CREATIO_DB_PRODModel.Avocat" />
+          <EntitySet Name="Commercials" EntityType="CREATIO_DB_PRODModel.Commercial" />
+        </EntityContainer>
+        <EntityType Name="Avocat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Specialite" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Presentation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreation" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HoraireDisponiste" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NoteAvocat" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Commercial">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Presentation" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreation" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CREATIO_DB_PRODModelStoreContainer" CdmEntityContainer="CREATIO_DB_PRODEntities">
+          <EntitySetMapping Name="Informations">
+            <EntityTypeMapping TypeName="CREATIO_DB_PRODModel.Information">
+              <MappingFragment StoreEntitySet="Informations">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Ville" ColumnName="Ville" />
+                <ScalarProperty Name="CodePostal" ColumnName="CodePostal" />
+                <ScalarProperty Name="TelephoneDomicile" ColumnName="TelephoneDomicile" />
+                <ScalarProperty Name="TelephoneBureau" ColumnName="TelephoneBureau" />
+                <ScalarProperty Name="TelephonePortable" ColumnName="TelephonePortable" />
+                <ScalarProperty Name="DateDeNaissance" ColumnName="DateDeNaissance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Avocats">
+            <EntityTypeMapping TypeName="CREATIO_DB_PRODModel.Avocat">
+              <MappingFragment StoreEntitySet="Avocat">
+                <ScalarProperty Name="NoteAvocat" ColumnName="NoteAvocat" />
+                <ScalarProperty Name="HoraireDisponiste" ColumnName="HoraireDisponiste" />
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Presentation" ColumnName="Presentation" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Specialite" ColumnName="Specialite" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Commercials">
+            <EntityTypeMapping TypeName="CREATIO_DB_PRODModel.Commercial">
+              <MappingFragment StoreEntitySet="Commercial">
+                <ScalarProperty Name="DateCreation" ColumnName="DateCreation" />
+                <ScalarProperty Name="Presentation" ColumnName="Presentation" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

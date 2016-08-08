@@ -4,15 +4,24 @@
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
         @Html.AntiForgeryToken()
-
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", new { Area = "" }, htmlAttributes: new { title = "Manage" })
-            </li>
-            <li>@Html.ActionLink("Register Users", "Register", "Account", new { Area = "Membres" }, htmlAttributes: new { id = "registerLink" })</li>
-            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-        </ul>
     }
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", new { Area = "" }, htmlAttributes: new { title = "Manage" })
+        </li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                Register Users
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>@Html.ActionLink("Register Avocat", "Register", "Account", new { Area = "Avocats" }, htmlAttributes: null)</li>
+                <li>@Html.ActionLink("Register Commerciaux", "Register", "Account", new { Area = "Commerciaux" }, htmlAttributes: null)</li>
+            </ul>
+        </li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+    </ul>
 }
 else
 {

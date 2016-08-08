@@ -17,7 +17,8 @@ namespace CreatioFrance.Areas.Avocats
             context.MapRoute(
                 "Avocats_default",
                 "Avocats/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                defaults: new { action = "Index", id = UrlParameter.Optional },
+                namespaces: new[] { "CreatioFrance.Areas.Avocats.Controllers" }
             );
         }
     }

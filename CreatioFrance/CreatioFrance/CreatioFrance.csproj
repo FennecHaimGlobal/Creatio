@@ -214,8 +214,7 @@
     <Compile Include="Areas\Administrateur\AdministrateurAreaRegistration.cs" />
     <Compile Include="Areas\Administrateur\Controllers\AdministrateurBaseController.cs" />
     <Compile Include="Areas\Avocats\AvocatsAreaRegistration.cs" />
-    <Compile Include="Areas\Avocats\Controllers\AvocatsController.cs" />
-    <Compile Include="Areas\Avocats\Models\AvocatInformationViewModel.cs" />
+    <Compile Include="Areas\Avocats\Controllers\AccountController.cs" />
     <Compile Include="Areas\Commerciaux\CommerciauxAreaRegistration.cs" />
     <Compile Include="Areas\Commerciaux\Controllers\CommercialController.cs" />
     <Compile Include="Areas\Commerciaux\Models\CommercialInformationViewModel.cs" />
@@ -273,7 +272,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Administrateur\Views\web.config" />
-    <Content Include="Areas\Avocats\Views\web.config" />
     <Content Include="Areas\Commerciaux\Views\web.config" />
     <Content Include="Areas\Membres\Views\web.config" />
     <Content Include="Areas\Membres\Views\_ViewStart.cshtml" />
@@ -287,6 +285,10 @@
     <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Users\Views\User\Index.cshtml" />
     <Content Include="Areas\Users\Views\User\Register.cshtml" />
+    <Content Include="Areas\Avocats\Views\web.config" />
+    <Content Include="Areas\Avocats\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Avocats\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Avocats\Views\Account\Register.cshtml" />
     <None Include="Properties\PublishProfiles\creatio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\creatio - Web Deploy.pubxml" />
     <None Include="Resources\EmailConfirmation.html" />
@@ -374,8 +376,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrateur\Models\" />
     <Folder Include="Areas\Administrateur\Views\Shared\" />
-    <Folder Include="Areas\Avocats\Views\Avocats\" />
-    <Folder Include="Areas\Avocats\Views\Shared\" />
+    <Folder Include="Areas\Avocats\Models\" />
     <Folder Include="Areas\Commerciaux\Views\Commercial\" />
     <Folder Include="Areas\Commerciaux\Views\Shared\" />
     <Folder Include="Areas\Membres\Service\" />

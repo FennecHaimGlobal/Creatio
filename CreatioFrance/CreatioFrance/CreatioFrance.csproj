@@ -224,6 +224,9 @@
     <Compile Include="Areas\Membres\Controllers\MembresController.cs" />
     <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
     <Compile Include="Areas\Membres\Models\MembersViewModel.cs" />
+    <Compile Include="Areas\Users\Controllers\UserController.cs" />
+    <Compile Include="Areas\Users\Models\UsersViewModel.cs" />
+    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Models\UsersInformationModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -278,6 +281,12 @@
     <Content Include="Areas\Membres\Views\ChatHub\Index.cshtml" />
     <Content Include="Areas\Membres\Views\View.cshtml" />
     <Content Include="Areas\Membres\Views\Membres\Register.cshtml" />
+    <Content Include="Areas\Membres\Views\Membres\Index.cshtml" />
+    <Content Include="Areas\Users\Views\web.config" />
+    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Users\Views\User\Index.cshtml" />
+    <Content Include="Areas\Users\Views\User\Register.cshtml" />
     <None Include="Properties\PublishProfiles\creatio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\creatio - Web Deploy.pubxml" />
     <None Include="Resources\EmailConfirmation.html" />
@@ -287,6 +296,10 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -302,6 +315,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />

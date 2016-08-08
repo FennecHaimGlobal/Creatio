@@ -1,29 +1,25 @@
-﻿using CreatioFrance.Models;
-using Microsoft.AspNet.Identity;
+﻿using AreaModels = CreatioFrance.Areas.Users.Models;
+using CreatioFrance.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
 using System.Web.Mvc;
 using CreatioFrance.Controllers;
-using System.Threading.Tasks;
-using CreatioFrance.Areas.Membres.Models;
-using CreatioUsersBusiness;
 using System.Web.Security;
 using CreatioFranceEntities.Users;
+using CreatioUsersBusiness;
 
-namespace CreatioFrance.Areas.Membres.Controllers
+namespace CreatioFrance.Areas.Users.Controllers
 {
-   
-    public class MembresController : AccountController
+    public class UserController : AccountController
     {
         #region Members
         private IUsersManagment _usersManagment = UsersManagment.GetInstance;
         #endregion
 
-        // GET: Test/Test
+        // GET: Users/User
         public ActionResult Index()
         {
             return View();
@@ -34,16 +30,16 @@ namespace CreatioFrance.Areas.Membres.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-                return View();
+            return View();
         }
 
-       
+
         //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(MembersViewModel model)
+        public async Task<ActionResult> Register(AreaModels.UsersViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -52,22 +48,22 @@ namespace CreatioFrance.Areas.Membres.Controllers
                 if (result.Succeeded)
                 {
                     //******************* Add Role To User  **************
-                    if (!Roles.RoleExists(eRolesInfo.CreatioMembers.ToString()))
-                        Roles.CreateRole(eRolesInfo.CreatioMembers.ToString());
-                    Roles.AddUserToRole(model.Register.Email, eRolesInfo.CreatioMembers.ToString());
+                    //if (!Roles.RoleExists(eRolesInfo.CreatioMembers.ToString()))
+                    //    Roles.CreateRole(eRolesInfo.CreatioMembers.ToString());
+                    //Roles.AddUserToRole(model.Register.Email, eRolesInfo.CreatioMembers.ToString());
                     //****************************************************
 
                     model.Users.Informations.Email = model.Register.Email;
                     model.Users.Informations.Id = user.Id;
-                   await _usersManagment.SaveUserInformation(model.Users.Informations);
+                    //await _usersManagment.SaveUserInformation(model.Users.Informations);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code, area = "" }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", callbackUrl);
 
                     return RedirectToAction("Index", "Home");
                 }

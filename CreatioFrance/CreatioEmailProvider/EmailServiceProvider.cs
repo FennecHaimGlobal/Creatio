@@ -109,8 +109,8 @@ namespace CreatioEmailProvider
                 if (index > 0)
                     name = name.Remove(index, name.Length - index);
 
-                BodyMessage.Replace("{verify-token-email}", token);
-                BodyMessage.Replace("{name}", name);
+                BodyMessage = BodyMessage.Replace("{verify-token-email}", token);
+                BodyMessage = BodyMessage.Replace("{name}", name);
 
                 await SendEmailAsync(subject,
                                     BodyMessage,

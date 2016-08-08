@@ -1,39 +1,40 @@
-﻿@inherits System.Web.Mvc.WebViewPage<CreatioFrance.Models.UsersViewModel>
+﻿@inherits System.Web.Mvc.WebViewPage<CreatioFrance.Areas.Users.Models.UsersViewModel>
 @using System.Web.UI;
+
 <div class="form-group">
-    @Html.LabelFor(m => m.Nom, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.Nom, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.Nom, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.Nom, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Informations.Prenom, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.Prenom, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.Prenom, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.Prenom, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Informations.TelephoneBureau, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.TelephoneBureau, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.TelephoneBureau, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.TelephoneBureau, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Informations.TelephoneDomicile, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.TelephoneDomicile, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.TelephoneDomicile, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.TelephoneDomicile, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Informations.TelephonePortable, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.TelephonePortable, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.TelephonePortable, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.TelephonePortable, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">
-    @Html.LabelFor(m => m.Informations.DateDeNaissance, new { @class = "col-md-2 control-label" })
+    @Html.LabelFor(m => m.Users.Informations.DateDeNaissance, new { @class = "col-md-2 control-label" })
     <div class="col-md-10">
-        @Html.TextBoxFor(m => m.Informations.DateDeNaissance, new { @class = "form-control" })
+        @Html.TextBoxFor(m => m.Users.Informations.DateDeNaissance, new { @class = "form-control" })
     </div>
 </div>
 <div class="form-group">

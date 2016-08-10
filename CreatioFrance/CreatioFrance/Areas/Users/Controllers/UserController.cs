@@ -48,9 +48,6 @@ namespace CreatioFrance.Areas.Users.Controllers
                 if (result.Succeeded)
                 {
                     await UserManager.AddToRoleAsync(user.Id, eRolesInfo.CreatioMembers.ToString());
-                    //******************* Add Role To User  **************
-                   // await _usersManagment.AddUserToRole(user.Id, eRolesInfo.CreatioMembers.ToString());
-                    //****************************************************
 
                     model.Users.Informations.Email = model.Register.Email;
                     model.Users.Informations.Id = user.Id;

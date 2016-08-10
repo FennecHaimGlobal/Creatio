@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace CreatioUsersData
 {
-    public class DataManagment: IDataManagment
+    public class UserDataManagment: IUserDataManagment
     {
         #region Members
 
         /// <summary>
         /// The _instance
         /// </summary>
-        private static IDataManagment _instance;
+        private static IUserDataManagment _instance;
 
         /// <summary>
         /// The _locker
@@ -33,7 +33,7 @@ namespace CreatioUsersData
         /// <value>
         /// The get instance.
         /// </value>
-        public static IDataManagment GetInstance
+        public static IUserDataManagment GetInstance
         {
             get
             {
@@ -43,7 +43,7 @@ namespace CreatioUsersData
                     {
                         if (_instance == null)
                         {
-                            _instance = new DataManagment();
+                            _instance = new UserDataManagment();
                         }
                     }
                 }
@@ -57,9 +57,9 @@ namespace CreatioUsersData
             {
                 if (string.IsNullOrEmpty(_connectionString))
                 {
-                    if (ConfigurationManager.ConnectionStrings["userConnectionProvider"] != null)
+                    if (ConfigurationManager.ConnectionStrings["user-connection-provider"] != null)
                     {
-                        _connectionString = ConfigurationManager.ConnectionStrings["userConnectionProvider"].ToString();
+                        _connectionString = ConfigurationManager.ConnectionStrings["user-connection-provider"].ToString();
                     }
 
                 }

@@ -2,7 +2,7 @@
 
 namespace CreatioUsersData
 {
-    public interface IDataManagment
+    public interface IUserDataManagment
     {
         Task SaveUserInformation(Information informations);
         Task SaveAvocatsInformation(Avocat avocats);

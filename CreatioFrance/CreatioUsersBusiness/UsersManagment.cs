@@ -16,7 +16,7 @@ namespace CreatioUsersBusiness
         /// </summary>
         private static IUsersManagment _instance;
 
-        private IDataManagment _dataManagment = DataManagment.GetInstance;
+        private IUserDataManagment _dataManagment = UserDataManagment.GetInstance;
 
         /// <summary>
         /// The _locker

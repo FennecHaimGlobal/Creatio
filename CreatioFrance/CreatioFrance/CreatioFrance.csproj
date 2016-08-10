@@ -229,6 +229,10 @@
     <Compile Include="Areas\Users\Controllers\UserController.cs" />
     <Compile Include="Areas\Users\Models\UsersViewModel.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Migrations\201608100752487_initial.cs" />
+    <Compile Include="Migrations\201608100752487_initial.Designer.cs">
+      <DependentUpon>201608100752487_initial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\UsersInformationModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -418,6 +422,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Migrations\201608100752487_initial.resx">
+      <DependentUpon>201608100752487_initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

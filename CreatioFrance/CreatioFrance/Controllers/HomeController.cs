@@ -8,6 +8,7 @@ namespace CreatioFrance.Controllers
 {
     public class HomeController : BaseController
     {
+        [Authorize(Roles = "CreatioMembers")]
         public ActionResult Index()
         {
             return View();

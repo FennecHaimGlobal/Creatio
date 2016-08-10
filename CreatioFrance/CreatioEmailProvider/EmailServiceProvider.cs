@@ -120,8 +120,7 @@ namespace CreatioEmailProvider
             }
             catch (Exception ex)
             {
-
-
+                throw ex;
             }
         }
         #endregion
@@ -156,8 +155,8 @@ namespace CreatioEmailProvider
                     Body = body
                 })
                     //smtp.Send(message);
-                    //Task.Run(() => smtp.SendMailAsync(message));
-                    await smtp.SendMailAsync(message);
+                 //  Task.Run(() => smtp.SendMailAsync(message));
+                smtp.Send(message);
             }
             catch (Exception ex)
             {

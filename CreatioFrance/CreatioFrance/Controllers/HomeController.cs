@@ -12,7 +12,7 @@ namespace CreatioFrance.Controllers
         {
             return View();
         }
-
+        [Authorize(Roles = "CreatioAdmin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

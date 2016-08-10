@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +21,8 @@ namespace CreatioUsersData
         /// The _locker
         /// </summary>
         private static object _locker = new object();
+
+        private string _connectionString = string.Empty;
 
         #endregion
 
@@ -47,9 +51,58 @@ namespace CreatioUsersData
             }
         }
 
+        public string ConnectionString
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_connectionString))
+                {
+                    if (ConfigurationManager.ConnectionStrings["userConnectionProvider"] != null)
+                    {
+                        _connectionString = ConfigurationManager.ConnectionStrings["userConnectionProvider"].ToString();
+                    }
+
+                }
+
+                return _connectionString;
+            }
+        }
+
+        public async Task AddUserToRole(string userId, string roleId)
+        {
+            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
+            {
+                AspNetUserRole userRole = new AspNetUserRole()
+                {
+                    UserId = userId,
+                    RoleId = roleId
+                };
+
+                context.AspNetUserRoles.Add(userRole);
+
+                await context.SaveChangesAsync();
+            }
+        }
+
+        public async Task<string> GetRoleIdByRoleName(string roleName)
+        {
+            string result = default(string);
+            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
+            {
+                var response = context.AspNetRoles.Where(T => T.Name == roleName).SingleOrDefault();
+
+                if (response != null)
+                {
+                    result = response.Id;
+                }
+            }
+                return result;
+        }
+        #endregion
+
         public async Task SaveAvocatsInformation(Avocat avocats)
         {
-            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities())
+            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
             {
                 context.Avocats.Add(avocats);
 
@@ -59,7 +112,7 @@ namespace CreatioUsersData
 
         public async Task SaveCommercialInformation(Commercial commercials)
         {
-            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities())
+            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
             {
                 context.Commercials.Add(commercials);
 
@@ -67,19 +120,39 @@ namespace CreatioUsersData
             }
         }
 
-
-
-
-        #endregion
-
         public async Task SaveUserInformation(Information informations)
         {
-            using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities())
+            try
             {
-                context.Informations.Add(informations);
+                using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
+                {
+                    context.Informations.Add(informations);
 
-                await context.SaveChangesAsync();
+                    await context.SaveChangesAsync();
+                }
             }
+            catch (TypeLoadException ex)
+            {
+
+                throw ex;
+            }
+            catch (TypeInitializationException ex1)
+            {
+
+                throw ex1;
+            }
+            catch (Exception ex3)
+            {
+
+                throw ex3;
+            }
+        }
+    }
+    public partial class CREATIO_DB_PRODEntities : DbContext
+    {
+        public CREATIO_DB_PRODEntities(string connectionString)
+            : base(connectionString)
+        {
         }
     }
 }

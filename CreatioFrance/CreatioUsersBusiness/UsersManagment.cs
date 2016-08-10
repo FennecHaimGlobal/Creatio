@@ -65,6 +65,13 @@ namespace CreatioUsersBusiness
             await _dataManagment.SaveCommercialInformation(commercials);
         }
 
+        public async Task AddUserToRole(string userId, string RoleName)
+        {
+            string roleId = await _dataManagment.GetRoleIdByRoleName(RoleName);
+
+            await _dataManagment.AddUserToRole(userId, roleId);
+        }
+
 
         #endregion
     }

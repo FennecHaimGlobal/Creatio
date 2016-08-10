@@ -105,6 +105,8 @@
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -215,6 +217,7 @@
     <Compile Include="Areas\Administrateur\Controllers\AdministrateurBaseController.cs" />
     <Compile Include="Areas\Avocats\AvocatsAreaRegistration.cs" />
     <Compile Include="Areas\Avocats\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Avocats\Models\AvocatInformationViewModel.cs" />
     <Compile Include="Areas\Commerciaux\CommerciauxAreaRegistration.cs" />
     <Compile Include="Areas\Commerciaux\Controllers\CommercialController.cs" />
     <Compile Include="Areas\Commerciaux\Models\CommercialInformationViewModel.cs" />
@@ -376,7 +379,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Administrateur\Models\" />
     <Folder Include="Areas\Administrateur\Views\Shared\" />
-    <Folder Include="Areas\Avocats\Models\" />
     <Folder Include="Areas\Commerciaux\Views\Commercial\" />
     <Folder Include="Areas\Commerciaux\Views\Shared\" />
     <Folder Include="Areas\Membres\Service\" />
@@ -420,6 +422,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

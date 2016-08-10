@@ -8,5 +8,6 @@ namespace CreatioUsersBusiness
         Task SaveUserInformation(Information informations);
         Task SaveAvocatsInformation(Avocat avocats);
         Task SaveCommercialInformation(Commercial commercials);
+        Task AddUserToRole(string id, string v);
     }
 }

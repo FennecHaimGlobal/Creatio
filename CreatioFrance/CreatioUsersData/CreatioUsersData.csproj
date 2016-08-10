@@ -44,6 +44,7 @@
     <Reference Include="System" />
     <Reference Include="System.Activities" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
@@ -55,61 +56,65 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserRole.cs">
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Avocat.cs">
-      <DependentUpon>UsersDataModel.tt</DependentUpon>
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Commercial.cs">
-      <DependentUpon>UsersDataModel.tt</DependentUpon>
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DataManagment.cs" />
     <Compile Include="IDataManagment.cs" />
     <Compile Include="Information.cs">
-      <DependentUpon>UsersDataModel.tt</DependentUpon>
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersDataModel.Context.cs">
+    <Compile Include="UserMetaDataModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UsersDataModel.Context.tt</DependentUpon>
+      <DependentUpon>UserMetaDataModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="UsersDataModel.cs">
+    <Compile Include="UserMetaDataModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UsersDataModel.tt</DependentUpon>
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UsersDataModel.Designer.cs">
+    <Compile Include="UserMetaDataModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>UsersDataModel.edmx</DependentUpon>
+      <DependentUpon>UserMetaDataModel.edmx</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EntityDeploy Include="UsersDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>UsersDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <None Include="UsersDataModel.edmx.diagram">
-      <DependentUpon>UsersDataModel.edmx</DependentUpon>
+    <EntityDeploy Include="UserMetaDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UserMetaDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="UserMetaDataModel.edmx.diagram">
+      <DependentUpon>UserMetaDataModel.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UsersDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UsersDataModel.edmx</DependentUpon>
-      <LastGenOutput>UsersDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="UsersDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>UsersDataModel.edmx</DependentUpon>
-      <LastGenOutput>UsersDataModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="UserMetaDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserMetaDataModel.edmx</DependentUpon>
+      <LastGenOutput>UserMetaDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserMetaDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UserMetaDataModel.edmx</DependentUpon>
+      <LastGenOutput>UserMetaDataModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -48,14 +48,12 @@ namespace CreatioFrance.Areas.Users.Controllers
                 if (result.Succeeded)
                 {
                     //******************* Add Role To User  **************
-                    //if (!Roles.RoleExists(eRolesInfo.CreatioMembers.ToString()))
-                    //    Roles.CreateRole(eRolesInfo.CreatioMembers.ToString());
-                    //Roles.AddUserToRole(model.Register.Email, eRolesInfo.CreatioMembers.ToString());
+                    await _usersManagment.AddUserToRole(user.Id, eRolesInfo.CreatioMembers.ToString());
                     //****************************************************
 
                     model.Users.Informations.Email = model.Register.Email;
                     model.Users.Informations.Id = user.Id;
-                    //await _usersManagment.SaveUserInformation(model.Users.Informations);
+                    await _usersManagment.SaveUserInformation(model.Users.Informations);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
@@ -65,7 +63,7 @@ namespace CreatioFrance.Areas.Users.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code, area = "" }, protocol: Request.Url.Scheme);
                     await UserManager.SendEmailAsync(user.Id, "Confirm your account", callbackUrl);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "User");
                 }
                 AddErrors(result);
             }

@@ -16,7 +16,7 @@ namespace CreatioMetaData
         /// <summary>
         /// The _instance
         /// </summary>
-        private static IDataManagment _instance;
+        private static IMetaDataManagment _instance;
 
         /// <summary>
         /// The _locker

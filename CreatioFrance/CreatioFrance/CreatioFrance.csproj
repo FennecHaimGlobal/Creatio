@@ -296,6 +296,7 @@
     <Content Include="Areas\Avocats\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Avocats\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Avocats\Views\Account\Register.cshtml" />
+    <Content Include="Areas\Avocats\Views\Partials\_AvocatsInfoPartialView.cshtml" />
     <None Include="Properties\PublishProfiles\creatio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\creatio - Web Deploy.pubxml" />
     <None Include="Resources\EmailConfirmation.html" />
@@ -419,6 +420,10 @@
     <ProjectReference Include="..\CreatioUsersData\CreatioUsersData.csproj">
       <Project>{d7fa053f-7b3d-4645-b059-da1d3ade34ed}</Project>
       <Name>CreatioUsersData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CreatioUtils\CreatioUtils.csproj">
+      <Project>{77c67185-0c61-4275-952d-11b4bda3368b}</Project>
+      <Name>CreatioUtils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

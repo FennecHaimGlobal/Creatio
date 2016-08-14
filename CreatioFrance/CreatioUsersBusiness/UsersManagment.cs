@@ -72,7 +72,14 @@ namespace CreatioUsersBusiness
             await _dataManagment.AddUserToRole(userId, roleId);
         }
 
+        public async Task SaveCallback(Callback callback)
+        {
+            await _dataManagment.SaveCallback(callback);
+        }
 
         #endregion
+
+
+
     }
 }

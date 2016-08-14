@@ -8,9 +8,7 @@
         <EntityTypeShape EntityType="CREATIO_DB_PRODModel.Avocat" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CREATIO_DB_PRODModel.Commercial" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CREATIO_DB_PRODModel.Information" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="CREATIO_DB_PRODModel.AspNetRole" Width="1.5" PointX="5.375" PointY="0.875" />
-        <EntityTypeShape EntityType="CREATIO_DB_PRODModel.AspNetUserRole" Width="1.5" PointX="7.625" PointY="0.875" />
-        <AssociationConnector Association="CREATIO_DB_PRODModel.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" />
+        <EntityTypeShape EntityType="CREATIO_DB_PRODModel.Callback" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

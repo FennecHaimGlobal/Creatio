@@ -229,10 +229,12 @@
     <Compile Include="Areas\Users\Controllers\UserController.cs" />
     <Compile Include="Areas\Users\Models\UsersViewModel.cs" />
     <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
+    <Compile Include="Controllers\CallbackController.cs" />
     <Compile Include="Migrations\201608100752487_initial.cs" />
     <Compile Include="Migrations\201608100752487_initial.Designer.cs">
       <DependentUpon>201608100752487_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CallbackViewModel.cs" />
     <Compile Include="Models\UsersInformationModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -378,6 +380,9 @@
     <Content Include="SignalR.Sample\jquery-1.10.2.min.map" />
     <Content Include="Views\Partial\Account\RegisterInfoPartialView.cshtml" />
     <Content Include="Views\Partial\Account\UsersInfoPartialView.cshtml" />
+    <Content Include="Views\Shared\_CallbackPartial.cshtml" />
+    <Content Include="Views\Callback\Index.cshtml" />
+    <Content Include="Views\Callback\SaveCallback.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -447,7 +452,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>16636</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

@@ -56,18 +56,16 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AspNetRole.cs">
-      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="AspNetUserRole.cs">
-      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Avocat.cs">
+      <DependentUpon>UserMetaDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Callback.cs">
       <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Commercial.cs">
       <DependentUpon>UserMetaDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ManyRequestsException.cs" />
     <Compile Include="UserDataManagment.cs" />
     <Compile Include="IUserDataManagment.cs" />
     <Compile Include="Information.cs">

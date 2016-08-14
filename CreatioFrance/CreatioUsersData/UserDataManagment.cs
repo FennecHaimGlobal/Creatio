@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CreatioUsersData
 {
-    public class UserDataManagment: IUserDataManagment
+    public class UserDataManagment : IUserDataManagment
     {
         #region Members
 
@@ -72,15 +72,15 @@ namespace CreatioUsersData
         {
             using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
             {
-                AspNetUserRole userRole = new AspNetUserRole()
-                {
-                    UserId = userId,
-                    RoleId = roleId
-                };
+                //AspNetUserRole userRole = new AspNetUserRole()
+                //{
+                //    UserId = userId,
+                //    RoleId = roleId
+                //};
 
-                context.AspNetUserRoles.Add(userRole);
+                //context.AspNetUserRoles.Add(userRole);
 
-                await context.SaveChangesAsync();
+                //await context.SaveChangesAsync();
             }
         }
 
@@ -89,14 +89,14 @@ namespace CreatioUsersData
             string result = default(string);
             using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
             {
-                var response = context.AspNetRoles.Where(T => T.Name == roleName).SingleOrDefault();
+                //var response = context.AspNetRoles.Where(T => T.Name == roleName).SingleOrDefault();
 
-                if (response != null)
-                {
-                    result = response.Id;
-                }
+                //if (response != null)
+                //{
+                //    result = response.Id;
+                //}
             }
-                return result;
+            return result;
         }
         #endregion
 
@@ -146,6 +146,43 @@ namespace CreatioUsersData
 
                 throw ex3;
             }
+        }
+
+        public async Task SaveCallback(Callback callback)
+        {
+            
+            try 
+	        {	        
+		        using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities(ConnectionString))
+                {
+                    var alreadyExistingCallbacks = context.Callback
+                        .Where(t => t.Telephone.Equals(callback.Telephone) && t.CallbackOk == 0);
+                    if (await alreadyExistingCallbacks.CountAsync() == 0)
+                    {
+                        context.Callback.Add(callback);
+                    }
+                    else
+                    {
+                        // (current entry) 18:20  -> (last existing entry)18:00 Not OK, 18:10 Not OK, 17:59 OK
+                        DateTime currentDate = DateTime.Now.AddMinutes(-20); 
+                        var repeatCallback = await alreadyExistingCallbacks.FirstOrDefaultAsync(t => t.Date.CompareTo(currentDate) < 0);
+                        if (repeatCallback != null)
+                        {
+                            repeatCallback.Repeat += 1;
+                            repeatCallback.Date = callback.Date;
+                        }
+                        else
+                        {
+                            throw new ManyRequestsException();
+                        }
+                    }
+                    await context.SaveChangesAsync();
+                }
+	        }
+	        catch (Exception)
+	        {
+		        throw;
+	        }
         }
     }
     public partial class CREATIO_DB_PRODEntities : DbContext

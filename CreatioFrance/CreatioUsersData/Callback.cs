@@ -12,11 +12,12 @@ namespace CreatioUsersData
     using System;
     using System.Collections.Generic;
     
-    public partial class AspNetUserRole
+    public partial class Callback
     {
-        public string UserId { get; set; }
-        public string RoleId { get; set; }
-    
-        public virtual AspNetRole AspNetRole { get; set; }
+        public int Id { get; set; }
+        public string Telephone { get; set; }
+        public System.DateTime Date { get; set; }
+        public byte CallbackOk { get; set; }
+        public int Repeat { get; set; }
     }
 }

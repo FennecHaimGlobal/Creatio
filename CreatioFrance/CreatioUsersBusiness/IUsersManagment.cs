@@ -9,5 +9,6 @@ namespace CreatioUsersBusiness
         Task SaveAvocatsInformation(Avocat avocats);
         Task SaveCommercialInformation(Commercial commercials);
         Task AddUserToRole(string id, string v);
+        Task SaveCallback(Callback callback);
     }
 }

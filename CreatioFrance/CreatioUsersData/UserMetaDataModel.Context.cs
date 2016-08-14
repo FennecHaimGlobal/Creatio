@@ -28,7 +28,6 @@ namespace CreatioUsersData
         public virtual DbSet<Avocat> Avocats { get; set; }
         public virtual DbSet<Commercial> Commercials { get; set; }
         public virtual DbSet<Information> Informations { get; set; }
-        public virtual DbSet<AspNetRole> AspNetRoles { get; set; }
-        public virtual DbSet<AspNetUserRole> AspNetUserRoles { get; set; }
+        public virtual DbSet<Callback> Callback { get; set; }
     }
 }

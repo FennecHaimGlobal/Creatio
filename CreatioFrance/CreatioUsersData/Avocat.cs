@@ -11,14 +11,15 @@ namespace CreatioUsersData
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web;
+
     public partial class Avocat
     {
         public string Id { get; set; }
         public string Specialite { get; set; }
+        public HttpPostedFileBase PhotoFile { get; set; }
         public string Photo { get; set; }
         public string Presentation { get; set; }
-        public string DateCreation { get; set; }
         public string HoraireDisponiste { get; set; }
         public string NoteAvocat { get; set; }
     }

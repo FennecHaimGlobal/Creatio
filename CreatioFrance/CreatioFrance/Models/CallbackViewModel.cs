@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 using System.Linq;
 
 namespace CreatioFrance.Models
@@ -45,25 +46,8 @@ namespace CreatioFrance.Models
                 try
                 {
                     var strValue = value.ToString();
-                    var repeatDict = new Dictionary<char, int>();
-                    foreach (var ch in strValue)
-                    {
-                        if (repeatDict.ContainsKey(ch))
-                        {
-                            repeatDict[ch]++;
-                            if (repeatDict[ch] > maxRepeatAllowed)
-                            {
-                                isValid = false;
-                                break;
-                            }
-                        }
-                        else 
-                        {
-                            repeatDict.Add(ch, 1);
-                        }
-                    
-                    }
-                
+                    var badMatch = new Regex("(.)\\1{5}");
+                    isValid = !badMatch.IsMatch(strValue);
 
                 }
                 catch (Exception ex)

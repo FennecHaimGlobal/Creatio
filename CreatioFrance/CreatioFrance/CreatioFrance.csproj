@@ -225,9 +225,6 @@
     <Compile Include="Areas\Membres\Controllers\MembresController.cs" />
     <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
     <Compile Include="Areas\Membres\Models\MembersViewModel.cs" />
-    <Compile Include="Areas\Users\Controllers\UserController.cs" />
-    <Compile Include="Areas\Users\Models\UsersViewModel.cs" />
-    <Compile Include="Areas\Users\UsersAreaRegistration.cs" />
     <Compile Include="Controllers\CallbackController.cs" />
     <Compile Include="Migrations\201608100752487_initial.cs" />
     <Compile Include="Migrations\201608100752487_initial.Designer.cs">
@@ -288,11 +285,6 @@
     <Content Include="Areas\Membres\Views\View.cshtml" />
     <Content Include="Areas\Membres\Views\Membres\Register.cshtml" />
     <Content Include="Areas\Membres\Views\Membres\Index.cshtml" />
-    <Content Include="Areas\Users\Views\web.config" />
-    <Content Include="Areas\Users\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Users\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Users\Views\User\Index.cshtml" />
-    <Content Include="Areas\Users\Views\User\Register.cshtml" />
     <Content Include="Areas\Avocats\Views\web.config" />
     <Content Include="Areas\Avocats\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Avocats\Views\Shared\_Layout.cshtml" />

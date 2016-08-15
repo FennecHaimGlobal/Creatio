@@ -46,7 +46,7 @@ namespace CreatioFrance.Models
                 try
                 {
                     var strValue = value.ToString();
-                    var badMatch = new Regex("(.)\\1{5}");
+                    var badMatch = new Regex("(.)\\1{4}");
                     isValid = !badMatch.IsMatch(strValue);
 
                 }

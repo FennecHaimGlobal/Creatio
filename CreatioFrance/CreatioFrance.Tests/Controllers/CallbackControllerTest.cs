@@ -54,7 +54,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Phone Number can not have a consecutive sequence."); 
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Telephone can not have a consecutive sequence."); 
             }
         }
 
@@ -97,7 +97,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Phone Number can not have a number that repeats more than 4 times in a sequence.");
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Telephone can not have a number that repeats more than 4 times in a sequence.");
             }
         }
 
@@ -140,7 +140,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Phone number must contains numbers only and start with 01 to 09.");
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Le Telephone n'est pas valide");
             }
         }
 
@@ -183,7 +183,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "The Phone Number must be at least 10 characters long.");
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "The Telephone must be at least 10 characters long.");
             }
         }
 

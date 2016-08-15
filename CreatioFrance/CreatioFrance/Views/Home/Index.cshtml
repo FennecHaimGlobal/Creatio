@@ -1,31 +1,120 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<div class="banner" style="margin-top: 5%">
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='//fonts.googleapis.com/css?family=Quicksand:400,300,700' rel='stylesheet' type='text/css'>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="banner-info">
+        <h1>Creatio France<span>Site En Construction</span></h1>
+        <h2>
+            Trouvez tous les documents juridiques dont vous avez besoin 
+            Consultez un avocat,<br /> Il vous rappelle en 15 minutes.
+        </h2>
+        <div class="main-example">
+            <div class="countdown-container" id="main-example"></div>
+        </div>
+        <script type="text/javascript"src="~/Scripts/jquery.countdown.js"></script>
+        <script type="text/javascript" src="~/Scripts/lodash.min.js"></script>
+        <script type="text/template" id="main-example-template">
+            <div class="time <%= label %>">
+                <span class="count curr top"><%= curr %></span>
+                <span class="count next top"><%= next %></span>
+                <span class="count next bottom"><%= next %></span>
+                <span class="count curr bottom"><%= curr %></span>
+                <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+            </div>
+        </script>
+        <script type="text/javascript">
+            $(window).on('load', function () {
+                var labels = ['Semaines', 'Jours', 'Heures', 'Minutes', 'Secondes'],
+                  nextYear = (new Date().getFullYear() + 1) + '/01/01',
+                  template = _.template($('#main-example-template').html()),
+                  currDate = '00:00:00:00:00',
+                  nextDate = '00:00:00:00:00',
+                  parser = /([0-9]{2})/gi,
+                  $example = $('#main-example');
+                // Parse countdown string to an object
+                function strfobj(str) {
+                    var parsed = str.match(parser),
+                      obj = {};
+                    labels.forEach(function (label, i) {
+                        obj[label] = parsed[i]
+                    });
+                    return obj;
+                }
+                // Return the time components that diffs
+                function diff(obj1, obj2) {
+                    var diff = [];
+                    labels.forEach(function (key) {
+                        if (obj1[key] !== obj2[key]) {
+                            diff.push(key);
+                        }
+                    });
+                    return diff;
+                }
+                // Build the layout
+                var initData = strfobj(currDate);
+                labels.forEach(function (label, i) {
+                    $example.append(template({
+                        curr: initData[label],
+                        next: initData[label],
+                        label: label
+                    }));
+                });
+                // Starts the countdown
+                $example.countdown(nextYear, function (event) {
+                    var newDate = event.strftime('%w:%d:%H:%M:%S'),
+                      data;
+                    if (newDate !== nextDate) {
+                        currDate = nextDate;
+                        nextDate = newDate;
+                        // Setup the data
+                        data = {
+                            'curr': strfobj(currDate),
+                            'next': strfobj(nextDate)
+                        };
+                        // Apply the new values to each node that changed
+                        diff(data.curr, data.next).forEach(function (label) {
+                            var selector = '.%s'.replace(/%s/, label),
+                                $node = $example.find(selector);
+                            // Update the node
+                            $node.removeClass('flip');
+                            $node.find('.curr').text(data.curr[label]);
+                            $node.find('.next').text(data.next[label]);
+                            // Wait for a repaint to then flip
+                            _.delay(function ($node) {
+                                $node.addClass('flip');
+                            }, 50, $node);
+                        });
+                    }
+                });
+            });
+        </script>
+        <div class="progressbars" progress="60%"></div>
+        <script type="text/javascript" src="~/Scripts/jprogress.js"></script>
+        <script>
+            // activate jprogress
+            $(".progressbars").jprogress({
+                background: "#80C340"
+            });
+        </script>
+        <div class="social-icons">
+            <ul class="social-networks square spin-icon">
+                <li><a href="#" class="icon-facebook"></a></li>
+                <li><a href="#" class="icon-twitter"></a></li>
+                <li><a href="#" class="icon-g-plus"></a></li>
+                <li><a href="#" class="icon-dribble"> </a></li>
+                <li><a href="#" class="icon-instagram"> </a></li>
+                <li><a href="#" class="icon-pinterest"> </a></li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>© 2016 Creatio-France en Construction. All rights reserved | Design by Creatio-France</p>
+        </div>
     </div>
 </div>

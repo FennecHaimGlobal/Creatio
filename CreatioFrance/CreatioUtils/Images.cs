@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,15 @@ using System.Threading.Tasks;
 
 namespace CreatioUtils
 {
-    public class Utils
+    public class Images
     {
-
-        public static string ImageToBase64(Image image, System.Drawing.Imaging.ImageFormat format = null)
+        /// <summary>
+        /// Images to base64.
+        /// </summary>
+        /// <param name="image">The image.</param>
+        /// <param name="format">The format.</param>
+        /// <returns></returns>
+        public static string ImageToBase64(Image image, ImageFormat format = null)
         {
             using (MemoryStream ms = new MemoryStream())
             {
@@ -29,6 +35,11 @@ namespace CreatioUtils
             }
         }
 
+        /// <summary>
+        /// Base64s to image.
+        /// </summary>
+        /// <param name="base64String">The base64 string.</param>
+        /// <returns></returns>
         public static Image Base64ToImage(string base64String)
         {
             // Convert Base64 String to byte[]

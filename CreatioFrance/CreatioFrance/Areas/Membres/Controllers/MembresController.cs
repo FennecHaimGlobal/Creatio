@@ -51,25 +51,21 @@ namespace CreatioFrance.Areas.Membres.Controllers
                 var result = await UserManager.CreateAsync(user, model.Register.Password);
                 if (result.Succeeded)
                 {
-                    //******************* Add Role To User  **************
-                    if (!Roles.RoleExists(eRolesInfo.CreatioMembers.ToString()))
-                        Roles.CreateRole(eRolesInfo.CreatioMembers.ToString());
-                    Roles.AddUserToRole(model.Register.Email, eRolesInfo.CreatioMembers.ToString());
-                    //****************************************************
+                    await UserManager.AddToRoleAsync(user.Id, eRolesInfo.CreatioMembers.ToString());
 
                     model.Users.Informations.Email = model.Register.Email;
                     model.Users.Informations.Id = user.Id;
-                   await _usersManagment.SaveUserInformation(model.Users.Informations);
+                    await _usersManagment.SaveUserInformation(model.Users.Informations);
 
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code, area = "" }, protocol: Request.Url.Scheme);
+                    await UserManager.SendEmailAsync(user.Id, "Confirm your account", callbackUrl);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Index", "Membres");
                 }
                 AddErrors(result);
             }

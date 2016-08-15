@@ -10,10 +10,10 @@ namespace CreatioFrance.Models
         [Required]
         [Phone]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
-        [RegularExpression("^[0][1-9]+[0-9]*$", ErrorMessage = "Phone number must contains numbers only and start with 01 to 09.")]
+        [RegularExpression("^[0][1-9]+[0-9]*$", ErrorMessage = "Le Telephone n'est pas valide")]
         [HasNoRepeatSequence]
         [HasNoConsecutiveSequenceAttribute]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Telephone")]
         public string PhoneNumber { get; set; }
     }
 

@@ -50,6 +50,11 @@ namespace CreatioUsersBusiness
             }
         }
 
+
+
+        #endregion
+
+        #region Public Methods
         public async Task SaveUserInformation(Information informations)
         {
             await _dataManagment.SaveUserInformation(informations);
@@ -60,7 +65,7 @@ namespace CreatioUsersBusiness
             await _dataManagment.SaveAvocatsInformation(avocats);
         }
 
-        public async  Task SaveCommercialInformation(Commercial commercials)
+        public async Task SaveCommercialInformation(Commercial commercials)
         {
             await _dataManagment.SaveCommercialInformation(commercials);
         }
@@ -76,10 +81,6 @@ namespace CreatioUsersBusiness
         {
             await _dataManagment.SaveCallback(callback);
         }
-
         #endregion
-
-
-
     }
 }

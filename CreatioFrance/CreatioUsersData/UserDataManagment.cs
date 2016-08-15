@@ -176,12 +176,12 @@ namespace CreatioUsersData
                             throw new ManyRequestsException();
                         }
                     }
-                    await context.SaveChangesAsync();
+                    context.SaveChanges();
                 }
 	        }
-	        catch (Exception)
+	        catch (Exception ex)
 	        {
-		        throw;
+		        throw ex; 
 	        }
         }
     }

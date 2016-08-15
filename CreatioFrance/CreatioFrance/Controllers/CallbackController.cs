@@ -31,6 +31,7 @@ namespace CreatioFrance.Controllers
                         Date = DateTime.Now
                     };
                     await _usersManagment.SaveCallback(callback);
+
                     ViewBag.Message = "Merci, nous allons vous contacter bientôt";
                 }
             }

@@ -221,7 +221,6 @@
     <Compile Include="Areas\Commerciaux\CommerciauxAreaRegistration.cs" />
     <Compile Include="Areas\Commerciaux\Controllers\CommercialController.cs" />
     <Compile Include="Areas\Commerciaux\Models\CommercialInformationViewModel.cs" />
-    <Compile Include="Areas\Membres\Controllers\ChatHubController.cs" />
     <Compile Include="Areas\Membres\Controllers\MembersBaseController.cs" />
     <Compile Include="Areas\Membres\Controllers\MembresController.cs" />
     <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
@@ -265,6 +264,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -285,7 +285,6 @@
     <Content Include="Areas\Membres\Views\web.config" />
     <Content Include="Areas\Membres\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Membres\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Membres\Views\ChatHub\Index.cshtml" />
     <Content Include="Areas\Membres\Views\View.cshtml" />
     <Content Include="Areas\Membres\Views\Membres\Register.cshtml" />
     <Content Include="Areas\Membres\Views\Membres\Index.cshtml" />
@@ -302,6 +301,9 @@
     <None Include="Properties\PublishProfiles\creatio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\creatio - Web Deploy.pubxml" />
     <None Include="Resources\EmailConfirmation.html" />
+    <Content Include="images\banner.jpg" />
+    <Content Include="images\dott.png" />
+    <Content Include="images\img-sp.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
@@ -309,17 +311,20 @@
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jprogress.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.js" />
     <Content Include="Scripts\jquery-3.1.0.slim.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.countdown.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -327,6 +332,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\respond.js" />
@@ -381,7 +387,7 @@
     <Content Include="SignalR.Sample\jquery-1.10.2.min.map" />
     <Content Include="Views\Partial\Account\RegisterInfoPartialView.cshtml" />
     <Content Include="Views\Partial\Account\UsersInfoPartialView.cshtml" />
-    <Content Include="Views\Shared\_CallbackPartial.cshtml" />
+    <Content Include="Views\Partial\CallBack\_CallbackPartial.cshtml" />
     <Content Include="Views\Callback\Index.cshtml" />
     <Content Include="Views\Callback\SaveCallback.cshtml" />
   </ItemGroup>

@@ -52,7 +52,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="IMetaDataManagment.cs" />
     <Compile Include="MetaDataManagment.cs" />
     <Compile Include="MetaDataModel.Context.cs">

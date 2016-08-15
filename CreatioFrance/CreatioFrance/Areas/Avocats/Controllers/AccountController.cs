@@ -49,7 +49,7 @@ namespace CreatioFrance.Areas.Avocats.Controllers
                     model.Users.Informations.Email = model.Register.Email;
                     model.Users.Informations.Id = user.Id;
 
-                    model.Avocats.Photo = Utils.ImageToBase64(Image.FromStream(model.Avocats.PhotoFile.InputStream));
+                    model.Avocats.Photo = Images.ImageToBase64(Image.FromStream(model.Avocats.PhotoFile.InputStream));
 
                     await _usersManagment.SaveAvocatsInformation(model.Avocats);
 

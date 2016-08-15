@@ -37,7 +37,12 @@ namespace CreatioFrance.Controllers
 
                 if (userFromAuthCookie != null && userFromAuthCookie.Identity.IsAuthenticated)
                 {
-                    ViewBag.UserName = userFromAuthCookie.Identity.Name;
+                    string email = userFromAuthCookie.Identity.Name;
+
+                    string name = email.Remove(email.IndexOf('@'),email.Length- email.IndexOf('@'));
+
+                    ViewBag.Name = name;
+                    ViewBag.EMail = email;
                 }
                
 

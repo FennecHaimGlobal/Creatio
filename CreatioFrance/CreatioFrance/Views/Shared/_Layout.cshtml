@@ -45,7 +45,21 @@
             }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
             $.src = "//v2.zopim.com/?42StGb7JstN4hrD2S0TNXwzIBuQF9x48"; z.t = +new Date; $.
             type = "text/javascript"; e.parentNode.insertBefore($, e)
+            
+       
+
         })(document, "script");
+
+        $zopim(function () {
+            var username = '@ViewBag.Name'
+            if (username != '') {
+                var email = '@ViewBag.EMail'
+                $zopim.livechat.setName(username);
+                $zopim.livechat.setEmail(email);
+            }
+           
+        });
+       
     </script>
     <!--End of Zopim Live Chat Script-->
 

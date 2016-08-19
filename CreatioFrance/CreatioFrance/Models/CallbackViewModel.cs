@@ -10,8 +10,8 @@ namespace CreatioFrance.Models
     {
         [Required]
         [Phone]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 10)]
-        [RegularExpression("^[0][1-9]+[0-9]*$", ErrorMessage = "Le Telephone n'est pas valide")]
+        [StringLength(10, ErrorMessage = "The {0} must be {2} characters long.", MinimumLength = 10)]
+        [RegularExpression("^[0]([1-7]|[9])+[0-9]*$", ErrorMessage = "Le Telephone n'est pas valide")]
         [HasNoRepeatSequence]
         [HasNoConsecutiveSequenceAttribute]
         [Display(Name = "Telephone")]

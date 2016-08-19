@@ -102,7 +102,7 @@ namespace CreatioFrance.Tests.Controllers
         }
 
         [TestMethod]
-        public void NotValidStartsWith01To09AndNumbersOnly()
+        public void NotValidStartsWith01To09No08AndNumbersOnly()
         {
             // Arrange
             CallbackController controller = new CallbackController();
@@ -129,6 +129,11 @@ namespace CreatioFrance.Tests.Controllers
                 {
                     PhoneNumber = "5678112247"
                 },
+                
+                new CallbackViewModel
+                {
+                    PhoneNumber = "08678112247"
+                },
             };
 
             foreach (var model in models)
@@ -145,7 +150,65 @@ namespace CreatioFrance.Tests.Controllers
         }
 
         [TestMethod]
-        public void NotValidMinLength()
+        public void ValidStartsWith01To09No08AndNumbersOnly()
+        {
+            // Arrange
+            CallbackController controller = new CallbackController();
+
+            List<CallbackViewModel> models = new List<CallbackViewModel>()
+            {
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0156125121"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0222445566"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0355125664"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0478112247"
+                },
+                
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0578112247"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0678112247"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0778112247"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "0990521456"
+                },
+                
+                
+
+            };
+
+            foreach (var model in models)
+            {
+                controller.ViewData.ModelState.Clear();
+                // Act
+                controller.ValidateViewModel(model);
+
+                // Assert
+                Assert.IsTrue(controller.ModelState.IsValid);
+                Assert.AreEqual(0, controller.ModelState.Count);
+            }
+        }
+
+        [TestMethod]
+        public void NotValidLength()
         {
             // Arrange
             CallbackController controller = new CallbackController();
@@ -155,6 +218,10 @@ namespace CreatioFrance.Tests.Controllers
                 new CallbackViewModel
                 {
                     PhoneNumber = "01"
+                },
+                new CallbackViewModel
+                {
+                    PhoneNumber = "05425011745"
                 },
                 new CallbackViewModel
                 {
@@ -183,7 +250,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "The Telephone must be at least 10 characters long.");
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "The Telephone must be 10 characters long.");
             }
         }
 

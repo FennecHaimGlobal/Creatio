@@ -80,10 +80,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 @*<ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Acceuil", "Index", "Home", new { Area = "" }, null)</li>
-                    <li>@Html.ActionLink("A Propos", "About", "Home", new { Area = "" }, null)</li>
-                    <li>@Html.ActionLink("Contactez-nous", "Contact", "Home", new { Area = "" }, null)</li>
-                </ul>*@
+                        <li>@Html.ActionLink("Acceuil", "Index", "Home", new { Area = "" }, null)</li>
+                        <li>@Html.ActionLink("A Propos", "About", "Home", new { Area = "" }, null)</li>
+                        <li>@Html.ActionLink("Contactez-nous", "Contact", "Home", new { Area = "" }, null)</li>
+                    </ul>*@
                 @Html.Partial("_LoginPartial")
                 @Html.Partial("~/Views/Partial/CallBack/_CallbackPartial.cshtml")
 
@@ -108,7 +108,7 @@
                 {
                     foreach (CreatioFrance.Entities.ActionLink link in ViewBag.menuData)
                     {
-                        <li>@Html.ActionLink(link.linkText, link.actionName, link.controllerName, new { Area = link.area }, null)</li>
+                        <li>@Html.ActionLink(link.linkText, link.actionName, link.controllerName, new { Area = link.area }, new { link.htmlAttributes })</li>
                     }
                 }
             </ul>

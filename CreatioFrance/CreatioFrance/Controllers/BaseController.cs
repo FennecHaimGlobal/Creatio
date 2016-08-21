@@ -40,6 +40,7 @@ namespace CreatioFrance.Controllers
                 MyMenu = new List<ActionLink>();
 
                 MyMenu.Add(new ActionLink() { linkText = "Acceuil", actionName = "Index", controllerName = "Home", area = "" });
+                MyMenu.Add(new ActionLink() { linkText = "Inscription", actionName = "Register", controllerName = "Membres", area = "Membres", htmlAttributes = new Dictionary<string, object> { { "id", "registerLink" } } });
                 MyMenu.Add(new ActionLink() { linkText = "A Propos", actionName = "About", controllerName = "Home", area = "" });
                 MyMenu.Add(new ActionLink() { linkText = "Contactez-nous", actionName = "Contact", controllerName = "Home", area = "" });
 

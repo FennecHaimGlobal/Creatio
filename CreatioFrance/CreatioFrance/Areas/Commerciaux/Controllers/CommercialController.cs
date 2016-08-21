@@ -42,9 +42,7 @@ namespace CreatioFrance.Areas.Commerciaux.Controllers
                 if (result.Succeeded)
                 {
                     //******************* Add Role To User  **************
-                    if (!Roles.RoleExists(eRolesInfo.CreatioCommerciaux.ToString()))
-                        Roles.CreateRole(eRolesInfo.CreatioCommerciaux.ToString());
-                    Roles.AddUserToRole(model.Register.Email, eRolesInfo.CreatioCommerciaux.ToString());
+                    await UserManager.AddToRoleAsync(user.Id, eRolesInfo.CreatioCommerciaux.ToString());
                     //****************************************************
 
 

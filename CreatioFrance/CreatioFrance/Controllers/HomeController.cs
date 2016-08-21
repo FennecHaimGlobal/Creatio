@@ -12,7 +12,6 @@ namespace CreatioFrance.Controllers
         {
             return View();
         }
-        [Authorize(Roles = "CreatioAdmin")]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
@@ -27,15 +26,4 @@ namespace CreatioFrance.Controllers
             return View();
         }
     }
-    //[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
-    //public class MyClassAuthorizationAttribute : Attribute, IAuthorizationFilter
-    //{
-    //    public void OnAuthorization(AuthorizationContext filterContext)
-    //    {
-    //        if (filterContext.HttpContext.User.Identity.IsAuthenticated)
-    //        {
-    //            filterContext.Controller.ViewData["MyClassInstance"] = new MyClass();
-    //        }
-    //    }
-    //}
 }

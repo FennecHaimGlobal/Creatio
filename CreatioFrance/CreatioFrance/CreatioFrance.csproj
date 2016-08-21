@@ -226,6 +226,7 @@
     <Compile Include="Areas\Membres\MembresAreaRegistration.cs" />
     <Compile Include="Areas\Membres\Models\MembersViewModel.cs" />
     <Compile Include="Controllers\CallbackController.cs" />
+    <Compile Include="Entities\ActionLink.cs" />
     <Compile Include="Migrations\201608100752487_initial.cs" />
     <Compile Include="Migrations\201608100752487_initial.Designer.cs">
       <DependentUpon>201608100752487_initial.cs</DependentUpon>
@@ -261,6 +262,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\jquery-ui\jquery-ui.min.css" />
+    <Content Include="Content\simple-sidebar.css" />
     <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Creatio - France</title>
     <link href="~/Content/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/simple-sidebar.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Scripts.Render("~/bundles/jquery")
@@ -34,7 +36,6 @@
         })(window, document);
     </script>
     <!--End of Push Crew Script-->
-
     <!--Start of Zopim Live Chat Script-->
     <script type="text/javascript">
         window.$zopim || (function (d, s) {
@@ -45,8 +46,8 @@
             }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
             $.src = "//v2.zopim.com/?42StGb7JstN4hrD2S0TNXwzIBuQF9x48"; z.t = +new Date; $.
             type = "text/javascript"; e.parentNode.insertBefore($, e)
-            
-       
+
+
 
         })(document, "script");
 
@@ -57,12 +58,14 @@
                 $zopim.livechat.setName(username);
                 $zopim.livechat.setEmail(email);
             }
-           
+
         });
-       
+
     </script>
     <!--End of Zopim Live Chat Script-->
+    @*Script Left SideBar*@
 
+    @*End Script Left SideBar*@
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -76,40 +79,49 @@
                 @Html.ActionLink("Creatio France", "Index", "Home", new { Area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+                @*<ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Acceuil", "Index", "Home", new { Area = "" }, null)</li>
                     <li>@Html.ActionLink("A Propos", "About", "Home", new { Area = "" }, null)</li>
                     <li>@Html.ActionLink("Contactez-nous", "Contact", "Home", new { Area = "" }, null)</li>
-                </ul>
+                </ul>*@
                 @Html.Partial("_LoginPartial")
                 @Html.Partial("~/Views/Partial/CallBack/_CallbackPartial.cshtml")
 
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+    @*Left SideBar*@
+    <div id="wrapper">
+        <div id="sidebar-wrapper">
+            <ul id="sidebar_menu" class="sidebar-nav" style="text-align: right; padding-right: 10px;
+                padding-top: 10px">
+                <li class="sidebar-brand">
+                    <a id="menu-toggle" href="#">
+                        <span id="main_icon" class="navbar-icon fa fa-bars icon">
+                        </span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="sidebar-nav">
+                <li style="color:white; font-size: 18px;">Menu Utilisateur</li>
+                @if (ViewBag.menuData != null)
+                {
+                    foreach (CreatioFrance.Entities.ActionLink link in ViewBag.menuData)
+                    {
+                        <li>@Html.ActionLink(link.linkText, link.actionName, link.controllerName, new { Area = link.area }, null)</li>
+                    }
+                }
+            </ul>
+        </div>
+
+        @*End Left SideBar*@
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            </footer>
+        </div>
     </div>
-
-    @RenderSection("scripts", required: false)
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#result").dialog({
-                autoOpen: false,
-                title: 'Creatio-Entreprise Chat',
-                width: 'auto',
-                height: 'auto',
-                modal: true
-            });
-        });
-        function openPopup() {
-            $("#result").dialog("open");
-        }
-    </script>
 </body>
 </html>

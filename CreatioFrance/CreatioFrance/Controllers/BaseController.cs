@@ -37,6 +37,12 @@ namespace CreatioFrance.Controllers
             {
                 var userFromAuthCookie = System.Threading.Thread.CurrentPrincipal;
 
+                MyMenu = new List<ActionLink>();
+
+                MyMenu.Add(new ActionLink() { linkText = "Acceuil", actionName = "Index", controllerName = "Home", area = "" });
+                MyMenu.Add(new ActionLink() { linkText = "A Propos", actionName = "About", controllerName = "Home", area = "" });
+                MyMenu.Add(new ActionLink() { linkText = "Contactez-nous", actionName = "Contact", controllerName = "Home", area = "" });
+
                 if (userFromAuthCookie != null && userFromAuthCookie.Identity.IsAuthenticated)
                 {
                     string email = userFromAuthCookie.Identity.Name;
@@ -45,12 +51,6 @@ namespace CreatioFrance.Controllers
 
                     ViewBag.Name = name;
                     ViewBag.EMail = email;
-
-                    MyMenu = new List<ActionLink>();
-
-                    MyMenu.Add(new ActionLink() { linkText = "Acceuil", actionName = "Index", controllerName = "Home", area = "" });
-                    MyMenu.Add(new ActionLink() { linkText = "A Propos", actionName = "About", controllerName = "Home", area = "" });
-                    MyMenu.Add(new ActionLink() { linkText = "Contactez-nous", actionName = "Contact", controllerName = "Home", area = "" });
 
                     var profilClaims = ((ClaimsIdentity)(userFromAuthCookie.Identity)).Claims
                                                                                       .Select(x=>x.Value)

@@ -54,7 +54,7 @@ namespace CreatioFrance.Tests.Controllers
                 // Assert
                 Assert.IsFalse(controller.ModelState.IsValid);
                 Assert.AreEqual(1, controller.ModelState.Count);
-                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Telephone can not have a consecutive sequence."); 
+                Assert.AreEqual(controller.ModelState["PhoneNumber"].Errors[0].ErrorMessage, "Telephone can not have a consecutive sequence.");
             }
         }
 
@@ -129,7 +129,7 @@ namespace CreatioFrance.Tests.Controllers
                 {
                     PhoneNumber = "5678112247"
                 },
-                
+
                 new CallbackViewModel
                 {
                     PhoneNumber = "08678112247"
@@ -173,7 +173,7 @@ namespace CreatioFrance.Tests.Controllers
                 {
                     PhoneNumber = "0478112247"
                 },
-                
+
                 new CallbackViewModel
                 {
                     PhoneNumber = "0578112247"
@@ -190,8 +190,8 @@ namespace CreatioFrance.Tests.Controllers
                 {
                     PhoneNumber = "0990521456"
                 },
-                
-                
+
+
 
             };
 
@@ -280,7 +280,7 @@ namespace CreatioFrance.Tests.Controllers
                 context.SaveChanges();
             }
 
-            
+
         }
 
         [TestMethod]
@@ -299,7 +299,7 @@ namespace CreatioFrance.Tests.Controllers
             // Act
             controller.SaveCallback(model).Wait();
             Assert.AreEqual(controller.ViewBag.Message, "Merci, nous allons vous contacter bientôt");
-            
+
             using (CREATIO_DB_PRODEntities context = new CREATIO_DB_PRODEntities((new UserDataManagment()).ConnectionString))
             { // To make sure that if the test runs again it will not be affected by the delay check.
                 var c = context.Callback.SingleOrDefault(t => t.Telephone.Equals(model.PhoneNumber) && t.CallbackOk.Equals(0));
@@ -336,7 +336,7 @@ namespace CreatioFrance.Tests.Controllers
             // Act
             controller.SaveCallback(model).Wait();
             Assert.AreEqual(controller.ViewBag.Message, "Merci, nous allons vous contacter bientôt");
-            
+
             controller.SaveCallback(model).Wait();
             Assert.AreEqual(controller.ViewBag.Message, "Votre demande de rappel est en cours de traitement, il faut compter un délai d’environ 20 min pour être rappelé. Merci de votre compréhension.");
 

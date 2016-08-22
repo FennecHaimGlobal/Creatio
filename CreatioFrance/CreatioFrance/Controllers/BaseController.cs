@@ -14,7 +14,7 @@ using System.Web.Security;
 
 namespace CreatioFrance.Controllers
 {
-    public class BaseController : AccountController
+    public class BaseController : Controller
     {
         private IMetaDataManager _metaDataManager = MetaDataManager.GetInstance;
 
